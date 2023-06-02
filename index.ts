@@ -3,6 +3,7 @@ const cors = require("cors")
 const app: Express = express();
 import {arveController} from './controllers/arveController'
 import {seadeController} from './controllers/seadeController'
+import {displayUserData} from './controllers/tootajateController'
 const acontroller = new arveController();
 const scontroller = new seadeController();
 app.get('/', (req: Request, res: Response) => {
@@ -96,6 +97,8 @@ scontroller.aktiivsed()
     .catch((error: Error) => {
         console.error('Error retrieving all active devices:', error);
     })
+displayUserData(1);
+displayUserData(2);
 app.use(cors({
     origin: ['http://localhost:3006']
 }));
